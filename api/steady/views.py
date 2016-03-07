@@ -4,7 +4,13 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from api.steady.serializers import UserSerializer, GroupSerializer
+from api.steady.serializers import UserSerializer, GroupSerializer, FooSerializer
+
+
+class FooViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint test
+    """
 
 
 class UserViewSet(viewsets.ModelViewSet):
