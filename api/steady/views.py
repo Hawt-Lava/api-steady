@@ -9,7 +9,6 @@ from rest_framework.decorators import api_view
 from api.steady.serializers import UserSerializer, GroupSerializer
 
 
-
 @api_view(['GET'])
 def foo_list(request):
     """
