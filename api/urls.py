@@ -44,4 +44,5 @@ urlpatterns = patterns(
     url(r'^', include(router.urls)),
     url(r'^foo', include(router.urls)),
     url(r'^tasks', 'foo_list', name='foo_name'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 )
