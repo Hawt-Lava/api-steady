@@ -26,9 +26,9 @@ from rest_framework import routers
 from api.steady import views
 
 
-# router = routers.DefaultRouter()
-# router.register(r'users', views.UserViewSet)
-# router.register(r'groups', views.GroupViewSet)
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 # router.register(r'foo', views.FooViewSet)
 # router.register(r'foo', 'foo')
 # Wire up our API using automatic URL routing.
@@ -41,5 +41,7 @@ from api.steady import views
 
 urlpatterns = patterns(
     'api.steady.views',
-    url(r'^tasks', 'foo_list', name='foo_list'),
+    url(r'^', include(router.urls)),
+    url(r'^foo', include(router.urls)),
+    url(r'^tasks', 'foo_list', name='foo_name'),
 )
