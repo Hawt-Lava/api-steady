@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
+from models import Foo
 from api.steady.serializers import UserSerializer, GroupSerializer, FooSerializer
 
 
@@ -11,6 +12,8 @@ class FooViewSet(viewsets.ModelViewSet):
     """
     API endpoint test
     """
+    queryset = Foo.objects.all()
+    serializer_class = FooSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
