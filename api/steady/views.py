@@ -7,7 +7,8 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from models import foo, prompt
-from api.steady.serializers import UserSerializer, GroupSerializer, FooSerializer
+from api.steady.provided_serializers import UserSerializer, GroupSerializer
+from api.steady.serializers.foo_serializer import FooSerializer
 
 
 @api_view(['GET', 'POST'])
