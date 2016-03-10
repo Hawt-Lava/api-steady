@@ -6,7 +6,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from models import Foo
+from models.foo import Foo
 from api.steady.serializers import UserSerializer, GroupSerializer, FooSerializer
 
 
