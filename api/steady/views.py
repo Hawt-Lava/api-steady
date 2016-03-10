@@ -6,9 +6,11 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from models import foo, prompt
+from api.steady.models import foo
 from api.steady.provided_serializers import UserSerializer, GroupSerializer
 from api.steady.serializers.foo_serializer import FooSerializer
+from api.steady.serializers.prompt_serializer import PromptSerializer
+
 
 
 @api_view(['GET', 'POST'])
