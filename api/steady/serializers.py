@@ -18,5 +18,3 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class FooSerializer(serializers.ModelSerializer):
     class Meta:
         model = Foo
-        fields = ('name')
-

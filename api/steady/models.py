@@ -4,5 +4,4 @@ from django.db import models
 
 
 class Foo(models.Model):
-    def __init__(self):
-        self.name = models.TextField()
+    name = models.TextField()
