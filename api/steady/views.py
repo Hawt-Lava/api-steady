@@ -10,6 +10,8 @@ from api.steady.models import foo
 from api.steady.provided_serializers import UserSerializer, GroupSerializer
 from api.steady.serializers.foo_serializer import FooSerializer
 from api.steady.serializers.prompt_serializer import PromptSerializer
+from api.steady.serializers.prompt_serializer import PromptSerializer
+from api.steady.serializers.prompt_serializer import PromptSerializer
 
 
 

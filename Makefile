@@ -1,11 +1,11 @@
-start: sync
+start: migrate
 	python2.7 manage.py runserver
 
-migrate:
+makemigration:
 	python2.7 manage.py makemigrations
 
-sync: migrate
-	python2.7 manage.py syncdb
+migrate: makemigration
+	python2.7 manage.py migrate
 
 activate:
 	source env/bin/activate

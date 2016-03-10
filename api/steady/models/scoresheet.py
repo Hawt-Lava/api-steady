@@ -6,4 +6,7 @@ from entry import Entry
 class ScoreSheet(models.Model):
     """Holds onto a group of entries"""
     date = models.TimeField()
-    entries = models.ForeignKey(Entry, many=True)
+    entries = models.ForeignKey(Entry)
+
+    class Meta:
+        app_label = 'steady'

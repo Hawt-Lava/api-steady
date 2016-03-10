@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
-    'api.steady.models.foo',
+    'api.steady',
 )
 
 MIDDLEWARE_CLASSES = (
