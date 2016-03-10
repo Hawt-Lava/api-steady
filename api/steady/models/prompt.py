@@ -3,5 +3,5 @@ from django.db import models
 # Create your models here.
 
 
-class Question(models.Model):
+class Prompt(models.Model):
     text = models.TextField()
