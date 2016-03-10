@@ -29,6 +29,7 @@ from api.steady import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+
 # router.register(r'foo', views.FooViewSet)
 # router.register(r'foo', 'foo')
 # Wire up our API using automatic URL routing.
