@@ -9,10 +9,12 @@ from rest_framework.decorators import api_view
 from api.steady.models import foo
 from api.steady.models import Prompt
 from api.steady.models import Entry
+from api.steady.models import ScoreSheet
 from api.steady.provided_serializers import UserSerializer, GroupSerializer
 from api.steady.serializers.foo_serializer import FooSerializer
 from api.steady.serializers.entry_serializer import EntrySerializer
 from api.steady.serializers.prompt_serializer import PromptSerializer
+from api.steady.serializers.scoresheet_serializer import ScoreSheetSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -63,11 +65,11 @@ def entry(request):
 @api_view(['GET', 'POST'])
 def scoresheet(request):
     if request.method == 'GET':
-        spreadsheets = SpreadSheet.objects.all()
-        serializer = SpreadSheetSerializer(spreadsheets, many=True)
+        spreadsheets = ScoreSheet.objects.all()
+        serializer = ScoreSheetSerializer(spreadsheets, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = SpreadSheetSerializer(data=request.data)
+        serializer = ScoreSheetSerializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return serializer.error_messages
