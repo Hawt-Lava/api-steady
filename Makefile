@@ -15,3 +15,5 @@ django:
 
 wipe:
 	python manage.py sqlflush
+lint:
+	yapf api --recursive -i
