@@ -1,4 +1,3 @@
-
 from api.steady.models.foo import Foo
 
 from rest_framework import serializers

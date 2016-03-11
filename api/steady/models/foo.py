@@ -9,4 +9,3 @@ class Foo(models.Model):
 
     class Meta:
         app_label = 'steady'
-

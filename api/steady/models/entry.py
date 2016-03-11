@@ -1,5 +1,6 @@
 from django.db import models
 from prompt import Prompt
+
 # Create your models here.
 
 
