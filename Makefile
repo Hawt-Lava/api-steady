@@ -9,3 +9,9 @@ migrate: makemigration
 
 activate:
 	source env/bin/activate
+
+django:
+	source manage.py shell
+
+wipe:
+	python manage.py sqlflush

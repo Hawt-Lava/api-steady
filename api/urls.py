@@ -26,7 +26,8 @@ router.register(r'groups', views.GroupViewSet)
 urlpatterns = patterns(
     'api.steady.views',
     url(r'^', include(router.urls)),
-    url(r'^tasks', 'foo_list', name='foo_name'),
-    url(r'^prompt', 'prompt', name='prompt_name'),
+    url(r'^foo', 'foo_list', name='foo_name'),
+    url(r'^prompts', 'prompt', name='prompt_name'),
+    url(r'^entries', 'entry', name='entry_name'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 )

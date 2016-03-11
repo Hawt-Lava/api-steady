@@ -8,8 +8,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from api.steady.models import foo
 from api.steady.models import Prompt
+from api.steady.models import Entry
 from api.steady.provided_serializers import UserSerializer, GroupSerializer
 from api.steady.serializers.foo_serializer import FooSerializer
+from api.steady.serializers.entry_serializer import EntrySerializer
 from api.steady.serializers.prompt_serializer import PromptSerializer
 
 
@@ -41,6 +43,21 @@ def prompt(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response('Failed')
+
+
+@api_view(['GET', 'POST'])
+def entry(request):
+    if request.method == 'GET':
+        tasks = Entry.objects.all()
+        serializer = EntrySerializer(tasks, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = EntrySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return serializer.error_messages
 
 
 class UserViewSet(viewsets.ModelViewSet):
