@@ -72,7 +72,7 @@ def scoresheet(request):
         serializer = ScoreSheetSerializer(data=request.data)
         if serializer.is_valid():
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return serializer.error_messages
+        return Response("{}".format(serializer.error_messages))
 
 
 class UserViewSet(viewsets.ModelViewSet):
