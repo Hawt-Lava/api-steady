@@ -60,6 +60,19 @@ def entry(request):
         return serializer.error_messages
 
 
+@api_view(['GET', 'POST'])
+def scoresheet(request):
+    if request.method == 'GET':
+        spreadsheets = SpreadSheet.objects.all()
+        serializer = SpreadSheetSerializer(spreadsheets, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = SpreadSheetSerializer(data=request.data)
+        if serializer.is_valid():
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return serializer.error_messages
+
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
