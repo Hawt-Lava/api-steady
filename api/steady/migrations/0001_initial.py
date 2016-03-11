@@ -29,7 +29,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('text', models.TextField()),
-                ('entry', models.ForeignKey(related_name='prompt', to='steady.Entry')),
             ],
         ),
         migrations.CreateModel(
@@ -38,5 +37,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('date', models.TimeField()),
             ],
+        ),
+        migrations.AddField(
+            model_name='entry',
+            name='prompt',
+            field=models.ForeignKey(to='steady.Prompt'),
         ),
     ]

@@ -48,8 +48,8 @@ def prompt(request):
 @api_view(['GET', 'POST'])
 def entry(request):
     if request.method == 'GET':
-        tasks = Entry.objects.all()
-        serializer = EntrySerializer(tasks, many=True)
+        entries = Entry.objects.all()
+        serializer = EntrySerializer(entries, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
