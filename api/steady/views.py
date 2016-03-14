@@ -71,6 +71,7 @@ def scoresheet(request):
     elif request.method == 'POST':
         serializer = ScoreSheetSerializer(data=request.data)
         if serializer.is_valid():
+            serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response("Validation Error: {}".format(
             serializer.error_messages))
