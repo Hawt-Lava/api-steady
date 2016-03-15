@@ -67,14 +67,17 @@ def scoresheet(request):
     if request.method == 'GET':
         spreadsheets = ScoreSheet.objects.all()
         serializer = ScoreSheetSerializer(spreadsheets, many=True)
+
         return Response(serializer.data)
+
     elif request.method == 'POST':
         serializer = ScoreSheetSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response("Validation Error: {}".format(
-            serializer.error_messages))
+
+        return Response("Validation Error: {}".format(serializer.error_messages))
 
 
 class UserViewSet(viewsets.ModelViewSet):
