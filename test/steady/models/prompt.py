@@ -1,16 +1,14 @@
 from unittest import TestCase
-from steady.models.prompt import Prompt
-import faker import Factory
+from api.steady.models.prompts import Prompt
+from faker import Factory
 
 class PromptTest(TestCase):
 
     def setUp(self):
-        self.faker = Faker()
+        self.faker = Factory()
 
     def testProperties(self):
         prompt = Prompt()
         text = self.faker.text
         prompt.text = text
         self.assertEquals(prompt.text, text)
-
-
