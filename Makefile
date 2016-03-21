@@ -9,12 +9,12 @@ migrate: makemigration
 
 activate:
 	source env/bin/activate
-
 django:
 	source manage.py shell
-
 wipe:
 	python manage.py sqlflush
 lint:
 	yapf ./api --recursive -i
 	yapf ./test --recursive -i
+tests:
+	coverage run manage.py test --omit=env/*

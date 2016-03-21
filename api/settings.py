@@ -36,7 +36,8 @@ INSTALLED_APPS = ('django.contrib.admin',
                   'django.contrib.staticfiles',
                   'rest_framework',
                   'api',
-                  'api.steady', )
+                  'api.steady',
+                  'coverage')
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
