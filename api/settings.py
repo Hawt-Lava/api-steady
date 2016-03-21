@@ -37,7 +37,9 @@ INSTALLED_APPS = ('django.contrib.admin',
                   'rest_framework',
                   'api',
                   'api.steady',
-                  'coverage')
+                  'coverage',
+                  'django_nose',
+                  'django_faker',)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,3 +107,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication', ),
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny', ),
 }
+
+# Test
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+FAKER_LOCALE = None     # settings.LANGUAGE_CODE is loaded
+FAKER_PROVIDERS = None  # faker.DEFAULT_PROVIDERS is loaded (all)

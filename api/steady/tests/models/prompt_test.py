@@ -1,5 +1,5 @@
 from unittest import TestCase
-from api.steady.models.prompts import Prompt
+from api.steady.models.prompt import Prompt
 from faker import Factory
 
 class PromptTest(TestCase):
