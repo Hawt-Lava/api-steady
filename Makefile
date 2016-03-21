@@ -17,4 +17,4 @@ lint:
 	yapf ./api --recursive -i
 	yapf ./test --recursive -i
 tests:
-	coverage run manage.py test --omit=env/*
+	coverage run manage.py test
