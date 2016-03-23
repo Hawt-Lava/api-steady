@@ -77,7 +77,8 @@ def scoresheet(request):
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        return Response("Validation Error: {}".format(serializer.error_messages))
+        return Response("Validation Error: {}".format(
+            serializer.error_messages))
 
 
 class UserViewSet(viewsets.ModelViewSet):
