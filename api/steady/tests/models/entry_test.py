@@ -1,8 +1,8 @@
 from api.steady.models.prompt import Prompt
 from api.steady.models.entry import Entry
+from api.steady.tests.base_test import BaseTest
 
-
-class EntryTest(TestCase):
+class EntryTest(BaseTest):
 
     def test_properties(self):
         score = 1
