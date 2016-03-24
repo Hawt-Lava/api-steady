@@ -9,7 +9,7 @@ class EntryTest(TestCase):
         self.faker = Factory.create()
 
     def test_properties(self):
-        score = self.faker.number()
+        score = 1
         prompt = Prompt()
         entry = Entry()
         entry.prompt = prompt
