@@ -1,6 +1,5 @@
-from faker import Factory
-from unittest import TestCase
+from api.steady.tests.base_test import BaseTest
 
-class ScoresheetTest(TestCase):
-    def setUp(self):
-        self.faker = Factory.create()
+class ScoresheetTest(BaseTest):
+    def test_properties(self):
+        pass
