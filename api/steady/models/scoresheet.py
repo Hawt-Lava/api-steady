@@ -6,7 +6,7 @@ class ScoreSheet(models.Model):
     """Holds onto a group of entries"""
     created = models.DateTimeField(auto_now=True)
     label = models.TextField()
-    entries = models.ForeignKey(Entry)
+    entries = models.ManyToManyField(Entry)
 
     class Meta:
         app_label = 'steady'

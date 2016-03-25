@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.conf.urls import url, include, patterns
 from rest_framework import routers
-from api.steady import views
+from api.steady import provided_views as views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
