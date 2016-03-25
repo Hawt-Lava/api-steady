@@ -4,7 +4,6 @@ from api.steady.tests.base_test import BaseTest
 
 
 class PromptTest(BaseTest):
-
     def test_properties(self):
         prompt = Prompt()
         text = self.faker.sentence()

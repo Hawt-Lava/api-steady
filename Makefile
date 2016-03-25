@@ -20,7 +20,6 @@ wipe:  ## Wipe the database clean
 
 lint: ## Cleans the Code
 	yapf ./api --recursive -i
-	yapf ./test --recursive -i
 
 tests:  ## Runs Tests
 	coverage run manage.py test

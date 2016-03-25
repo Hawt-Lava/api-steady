@@ -1,11 +1,9 @@
 from django.shortcuts import render
-
-# Create your views here.
-
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+
 from api.steady.models import foo
 from api.steady.models import Prompt
 from api.steady.models import Entry
