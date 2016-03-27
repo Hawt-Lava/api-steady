@@ -3,4 +3,5 @@ omit =
     *env*
     *migrations*
     *tests*
-    __init__.py
+    *__init__*
+    manage.py
