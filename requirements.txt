@@ -1,4 +1,3 @@
-faker
 beautifulsoup4==4.4.1
 colorama==0.3.7
 coverage==4.0.3
