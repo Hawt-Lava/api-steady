@@ -5,7 +5,6 @@ from api.steady.models.prompt import Prompt
 
 
 class ScoresheetTest(BaseTest):
-
     def test_properties(self):
         scoresheet = ScoreSheet()
 

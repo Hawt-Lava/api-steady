@@ -5,4 +5,3 @@ from api.steady.views.base_view import BaseView
 class PromptView(BaseView):
 
     serializer_class = PromprtSerializer
-

@@ -7,18 +7,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('steady', '0003_scoresheet_label'),
-    ]
+    dependencies = [('steady', '0003_scoresheet_label'), ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='scoresheet',
-            name='entries',
-        ),
-        migrations.AddField(
-            model_name='scoresheet',
-            name='entries',
-            field=models.ManyToManyField(to='steady.Entry'),
-        ),
+        migrations.RemoveField(model_name='scoresheet',
+                               name='entries', ),
+        migrations.AddField(model_name='scoresheet',
+                            name='entries',
+                            field=models.ManyToManyField(to='steady.Entry'), ),
     ]
