@@ -55,3 +55,4 @@ class ScoresheetTest(BaseTest):
         self.assertEquals(scoresheet.label, label)
         self.assertEquals(len(scoresheet.entries.all()), 2)
         // Assert Prompt and Entries are correct
+        self.assertEquals(scoresheet.entries.get(id))
