@@ -2,3 +2,7 @@
 omit =
     *env*
     *migrations*
+    *tests*
+    *__init__.py
+    manage.py
+    *settings.py
