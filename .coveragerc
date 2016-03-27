@@ -2,3 +2,4 @@
 omit =
     *env*
     *migrations*
+    *tests*
