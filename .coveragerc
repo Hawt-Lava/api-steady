@@ -3,6 +3,6 @@ omit =
     *env*
     *migrations*
     *tests*
-    *__init__*
+    *__init__.py
     manage.py
-    settings.py
+    *settings.py
