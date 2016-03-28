@@ -19,6 +19,7 @@ from rest_framework import routers
 
 from api.steady.views.prompt_view import PromptView
 from api.steady.views.entry_view import EntryView
+from api.steady.views.scoresheet_view import ScoreSheetView
 
 from api.steady import provided_views as views
 
@@ -30,6 +31,7 @@ urlpatterns = patterns('api.steady.views',
                        url(r'^', include(router.urls)),
                        url(r'^prompts', PromptView.as_view()),
                        url(r'^entries', EntryView.as_view()),
+                       url(r'^scoresheets', ScoreSheetView.as_view()),
                        url(r'^api-auth/',
                            include('rest_framework.urls',
                                    namespace='rest_framework')))
