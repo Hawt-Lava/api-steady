@@ -1,6 +1,6 @@
 from api.steady.tests.base_test import BaseTest
 from api.steady.models.entry import Entry
-
+from api.steady.tests.stubs.entry_stub import EntryStub
 from rest_framework.test import APIClient
 
 
@@ -13,14 +13,14 @@ class EntriesEndpointTest(BaseTest):
         number_of_entries = 4
         i = 0
         while i < number_of_entries:
-            Entry(score=i, prompt=Prompt(text=self.faker.sentence())).save()
+            EntryStub().generate_object().save()
             i += 1
         response = self.client.get('/entries')
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.data['count'], number_of_entries)
 
     def test_entries_success(self):
-        data = {'text': self.faker.sentence()}
+        data = EntryStub().generate()
         response = self.client.post('/entries', data)
         self.assertEquals(response.status_code, 201)
-        self.assertEquals(response.data['text'], data['text'])
+        self.assertEquals(response.data['score'], data['score'])
