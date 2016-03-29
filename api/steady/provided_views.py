@@ -1,26 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, status
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 
-from api.steady.models import foo
 
 from api.steady.provided_serializers import UserSerializer, GroupSerializer
-from api.steady.serializers.foo_serializer import FooSerializer
-
-@api_view(['GET', 'POST'])
-def foo_list(request):
-    if request.method == 'GET':
-        tasks = foo.Foo.objects.all()
-        serializer = FooSerializer(tasks, many=True)
-        return Response(serializer.data)
-    elif request.method == 'POST':
-        serializer = FooSerializer(data=request.data)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response('Validation Failed')
 
 
 class UserViewSet(viewsets.ModelViewSet):
