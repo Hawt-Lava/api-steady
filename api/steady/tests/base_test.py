@@ -1,7 +1,8 @@
 from faker import Factory
-from unittest import TestCase
+from rest_framework.test import APIClient, APITestCase
 
 
-class BaseTest(TestCase):
+class BaseTest(APITestCase):
     def setUp(self):
         self.faker = Factory.create()
+
