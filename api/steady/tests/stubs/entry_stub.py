@@ -18,6 +18,7 @@ class EntryStub(BaseStub):
 
     def generate_object(self):
         data = self.generate()
-        data['prompt'] = Prompt(**data['prompt'])
-        print(data['prompt'])
-        return Entry(**self.generate())
+        prompt = Prompt(**data['prompt'])
+        prompt.save()
+        data['prompt'] = prompt
+        return Entry(**data)

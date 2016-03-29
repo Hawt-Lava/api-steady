@@ -21,6 +21,6 @@ class EntriesEndpointTest(BaseTest):
 
     def test_entries_success(self):
         data = EntryStub().generate()
-        response = self.client.post('/entries', data)
+        response = self.client.post('/entries', data, format='json')
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['score'], data['score'])
