@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, status
 
-
 from api.steady.provided_serializers import UserSerializer, GroupSerializer
 
 

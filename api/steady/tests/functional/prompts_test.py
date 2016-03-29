@@ -3,6 +3,7 @@ from api.steady.models.prompt import Prompt
 
 from rest_framework.test import APIClient
 
+
 class PromptsEndpointTest(BaseTest):
     def test_prompts_exists(self):
         response = self.client.get('/prompts')
@@ -23,4 +24,3 @@ class PromptsEndpointTest(BaseTest):
         response = self.client.post('/prompts', data)
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['text'], data['text'])
-

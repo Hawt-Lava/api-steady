@@ -3,6 +3,7 @@ from api.steady.models.entry import Entry
 
 from rest_framework.test import APIClient
 
+
 class EntriesEndpointTest(BaseTest):
     def test_entries_enpoint_exists(self):
         response = self.client.get('/entries')
@@ -23,4 +24,3 @@ class EntriesEndpointTest(BaseTest):
         response = self.client.post('/entries', data)
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['text'], data['text'])
-
