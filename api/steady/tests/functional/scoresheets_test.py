@@ -2,6 +2,7 @@ from api.steady.tests.base_test import BaseTest
 from api.steady.models.scoresheet import ScoreSheet
 from api.steady.tests.stubs.scoresheet_stub import ScoreSheetStub
 
+
 class ScoreSheetEndpointTest(BaseTest):
     def test_scoresheet_enpoint_exists(self):
         response = self.client.get('/scoresheets')

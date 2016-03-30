@@ -2,8 +2,8 @@ from api.steady.tests.stubs.base_stub import BaseStub
 from api.steady.tests.stubs.prompt_stub import PromptStub
 from api.steady.models.entry import Entry
 
-class EntryStub(BaseStub):
 
+class EntryStub(BaseStub):
     def generate(self):
         score = self.random_number()
         prompt = PromptStub().generate()

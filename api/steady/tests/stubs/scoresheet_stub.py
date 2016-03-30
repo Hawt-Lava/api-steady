@@ -3,8 +3,8 @@ from api.steady.tests.stubs.entry_stub import EntryStub
 from api.steady.models.scoresheet import ScoreSheet
 from api.steady.models.entry import Entry
 
-class ScoreSheetStub(BaseStub):
 
+class ScoreSheetStub(BaseStub):
     def generate(self):
         label = self.faker.sentence()
         entry1 = EntryStub().generate()
@@ -14,7 +14,8 @@ class ScoreSheetStub(BaseStub):
     def generate_existing(self):
         data = self.generate()
         data['id'] = self.random_number()
-        data['entries'] = [EntryStub().generate_existing(), EntryStub().generate_existing()]
+        data['entries'] = [EntryStub().generate_existing(),
+                           EntryStub().generate_existing()]
         return data
 
     def generate_object(self):

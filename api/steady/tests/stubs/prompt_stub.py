@@ -1,8 +1,8 @@
 from api.steady.tests.stubs.base_stub import BaseStub
 from api.steady.models.prompt import Prompt
 
-class PromptStub(BaseStub):
 
+class PromptStub(BaseStub):
     def generate(self):
         return {"text": self.faker.sentence()}
 

@@ -2,6 +2,7 @@ from api.steady.tests.base_test import BaseTest
 from api.steady.models.prompt import Prompt
 from api.steady.tests.stubs.prompt_stub import PromptStub
 
+
 class PromptsEndpointTest(BaseTest):
     def test_prompts_exists(self):
         response = self.client.get('/prompts')
