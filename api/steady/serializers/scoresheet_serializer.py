@@ -14,10 +14,10 @@ class ScoreSheetSerializer(serializers.ModelSerializer):
         """Creates a scoresheet object
 
         Args:
-            validated_data(str): Data from scoresheet containing entries which contain prompts
+            validated_data(dict): Data from scoresheet containing entries which contain prompts
 
         Returns:
-            A scoresheet object with populated .entries field
+            A scoresheet object with populated entries field
         """
         entries_data = validated_data.pop('entries')
         score_sheet = ScoreSheet.objects.create(**validated_data)
