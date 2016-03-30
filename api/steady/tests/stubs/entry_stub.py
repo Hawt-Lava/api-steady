@@ -1,7 +1,6 @@
 from api.steady.tests.stubs.base_stub import BaseStub
 from api.steady.tests.stubs.prompt_stub import PromptStub
 from api.steady.models.entry import Entry
-from api.steady.models.prompt import Prompt
 
 class EntryStub(BaseStub):
 
@@ -18,7 +17,7 @@ class EntryStub(BaseStub):
 
     def generate_object(self):
         data = self.generate()
-        prompt = Prompt(**data['prompt'])
+        prompt = PromptStub().generate_object()
         prompt.save()
         data['prompt'] = prompt
         return Entry(**data)
