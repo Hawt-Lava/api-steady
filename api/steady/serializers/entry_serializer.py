@@ -11,6 +11,14 @@ class EntrySerializer(serializers.ModelSerializer):
         model = Entry
 
     def create(self, validated_data):
+        """Takes the prompt data and displays it in the entry field
+
+        Args:
+            validated_data(str): Data from entry and prompt
+
+        Returns:
+            An entry model with a populated prompt
+        """
 
         prompt_data = validated_data.pop('prompt')
         entry = Entry.objects.create(**validated_data)
