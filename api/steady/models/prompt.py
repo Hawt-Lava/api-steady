@@ -8,5 +8,5 @@ class Prompt(models.Model):
         app_label = 'steady'
 
     def __unicode__(self):
-        """Returns text inputted by the user"""
+        """Returns text associated with the prompt"""
         return "{0}".format(self.text)

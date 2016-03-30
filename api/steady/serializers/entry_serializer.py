@@ -14,10 +14,10 @@ class EntrySerializer(serializers.ModelSerializer):
         """Takes the prompt data and displays it in the entry field
 
         Args:
-            validated_data(str): Data from prompt
+            validated_data(str): Data from entry and prompt
 
         Returns:
-            Prompt data in entry field
+            An entry model with a populated prompt
         """
 
         prompt_data = validated_data.pop('prompt')
