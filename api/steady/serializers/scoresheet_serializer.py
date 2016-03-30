@@ -11,6 +11,14 @@ class ScoreSheetSerializer(serializers.ModelSerializer):
         model = ScoreSheet
 
     def create(self, validated_data):
+        """Creates the scoresheet data
+
+        Args:
+            validated_data: Data from entries
+
+        Returns:
+            A list of entries
+        """
         entries_data = validated_data.pop('entries')
         score_sheet = ScoreSheet.objects.create(**validated_data)
         entry_list = []
