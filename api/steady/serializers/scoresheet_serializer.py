@@ -11,6 +11,14 @@ class ScoreSheetSerializer(serializers.ModelSerializer):
         model = ScoreSheet
 
     def create(self, validated_data):
+        """Creates a scoresheet object
+
+        Args:
+            validated_data(dict): Data from scoresheet containing entries which contain prompts
+
+        Returns:
+            A scoresheet object with populated entries field
+        """
         entries_data = validated_data.pop('entries')
         score_sheet = ScoreSheet.objects.create(**validated_data)
         entry_list = []
