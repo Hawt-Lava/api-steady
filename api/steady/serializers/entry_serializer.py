@@ -13,8 +13,9 @@ class EntrySerializer(serializers.ModelSerializer):
     def create(self, validated_data):
 
         prompt_data = validated_data.pop('prompt')
-        entry = Entry.objects.create(**validated_data)
         prompt = Prompt.objects.create(**prompt_data)
+        entry = Entry.objects.create(prompt=prompt, **validated_data)
+
         entry.prompt = prompt
 
         return entry
