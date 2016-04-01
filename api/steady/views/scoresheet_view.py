@@ -8,6 +8,5 @@ class ScoreSheetView(generics.ListCreateAPIView):
     """
     ScoreSheet View for Listing and Creating
     """
-
     queryset = ScoreSheet.objects.all()
     serializer_class = ScoreSheetSerializer

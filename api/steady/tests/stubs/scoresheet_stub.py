@@ -20,10 +20,16 @@ class ScoreSheetStub(BaseStub):
 
     def generate_object(self):
         data = self.generate()
-        data['entries']
+        data.pop("entries")
+
         entry = EntryStub().generate_object()
         entry2 = EntryStub().generate_object()
         entry.save()
         entry2.save()
-        data['entries'] = [entry, entry2]
-        return ScoreSheet(**data)
+
+        scoresheet = ScoreSheet(**data)
+        scoresheet.save()
+
+        scoresheet.entries.add(entry, entry2)
+
+        return scoresheet
