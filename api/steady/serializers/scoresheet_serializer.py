@@ -19,15 +19,17 @@ class ScoreSheetSerializer(serializers.ModelSerializer):
         Returns:
             A scoresheet object with populated entries field
         """
+
         entries_data = validated_data.pop('entries')
 
         score_sheet = ScoreSheet.objects.create(**validated_data)
         entry_serializer = EntrySerializer()
 
-
         for entry_data in entries_data:
-            entry = entry_serializer.create(entry_data)
-            print entry
+            if 'id' in entry_data.keys():
+                entry = Entry.objects.get(id=entry_data['id'])
+            else:
+                entry = entry_serializer.create(entry_data)
             score_sheet.entries.add(entry)
 
         return score_sheet

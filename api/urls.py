@@ -30,8 +30,7 @@ router.register(r'groups', views.GroupViewSet)
 urlpatterns = [url(r'^', include(router.urls)),
                url(r'^prompts', PromptView.as_view()),
                url(r'^entries', EntryView.as_view()),
-               url(r'^scoresheets', ScoreSheetView.as_view()),
-               url(r'^api-auth/',
+               url(r'^scoresheets', ScoreSheetView.as_view()), url(
+                   r'^api-auth/',
                    include('rest_framework.urls',
-                           namespace='rest_framework'))
-               ]
+                           namespace='rest_framework'))]

@@ -1,5 +1,6 @@
 from api.steady.tests.base_test import BaseTest
 from api.steady.tests.stubs.scoresheet_stub import ScoreSheetStub
+from api.steady.tests.stubs.entry_stub import EntryStub
 
 
 class ScoreSheetEndpointTest(BaseTest):
@@ -19,11 +20,24 @@ class ScoreSheetEndpointTest(BaseTest):
 
     def test_scoresheets_post(self):
         data = ScoreSheetStub().generate()
-
-        import pprint
-        pprint.pprint(data)
-
         response = self.client.post('/scoresheets', data, format='json')
-        print ("MADE IT HERE")
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['label'], data['label'])
+        self.assertEquals(response.data['entries'][0]['score'], data['entries'][0]['score'])
+
+
+    def test_scoresheets_post_associates_existing_entries(self):
+
+        entry_data = EntryStub().generate()
+        entry_response = self.client.post('/entries', entry_data, format='json')
+
+        data = ScoreSheetStub().generate()
+
+        entry_data['id'] = entry_response.data['id']
+        data['entries'] = [entry_data]
+        response = self.client.post('/scoresheets', data, format='json')
+        self.assertEquals(response.status_code, 201)
+        self.assertEquals(response.data['label'], data['label'])
+        self.assertEquals(response.data['entries'][0]['id'], data['entries'][0]['id'])
+
+
