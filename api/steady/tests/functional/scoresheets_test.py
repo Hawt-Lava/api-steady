@@ -25,7 +25,6 @@ class ScoreSheetEndpointTest(BaseTest):
         self.assertEquals(response.data['label'], data['label'])
         self.assertEquals(response.data['entries'][0]['score'], data['entries'][0]['score'])
 
-
     def test_scoresheets_post_associates_existing_entries(self):
 
         entry_data = EntryStub().generate()
