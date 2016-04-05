@@ -10,4 +10,4 @@ class ScoreSheetView(generics.ListCreateAPIView):
     """
     queryset = ScoreSheet.objects.all()
     serializer_class = ScoreSheetSerializer
-    filter_backends = (filters.DjangoFilterBackend,)
+    filter_backends = (filters.DjangoFilterBackend, )
