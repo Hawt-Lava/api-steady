@@ -19,28 +19,3 @@ class ScoreSheetSerializerTest(BaseTest):
         scoresheet = scoresheet_serializer.create(data_dict)
         self.assertEquals(len(ScoreSheet.objects.all()), 1)
         self.assertEquals(len(scoresheet.entries.all()), 2)
-
-    def test_can_reference_existing_entries(self):
-        # Initialize 2 Entries
-
-        entry1 = Entry.objects.create()
-        entry2 = Entry.objects.create()
-
-        scoresheet_stub = ScoreSheetStub().generate()
-        scoresheet_stub.pop('entries')
-
-        scoresheet_stub.entries = [
-            {
-                'id': entry1.id
-            },
-            {
-                'id': entry2.id
-            }
-
-        ]
-        scoresheet_serializer = ScoreSheetSerializer()
-        print scoresheet_stub
-        scoresheet = scoresheet_serializer.create(**scoresheet_stub)
-
-        self.assertEquals(len(scoresheet.entries), 2)
-
