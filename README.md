@@ -1,5 +1,5 @@
 # API
-A custom API
+A custom API that supports https://github.com/Hawt-Lava/app-steady
 
 ## Model Relationship
 
