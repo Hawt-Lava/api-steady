@@ -5,12 +5,11 @@ from api.steady.serializers.prompt_serializer import PromptSerializer
 
 
 class EntrySerializer(serializers.ModelSerializer):
-    prompt = PromptSerializer()
 
     class Meta:
         model = Entry
 
-    def create(self, validated_data):
+'''    def create(self, validated_data):
         """Takes the prompt data and displays it in the entry field
 
         Args:
@@ -27,3 +26,4 @@ class EntrySerializer(serializers.ModelSerializer):
         entry.prompt = prompt
 
         return entry
+    '''
