@@ -6,8 +6,8 @@ from api.steady.models.entry import Entry
 class EntryStub(BaseStub):
     def generate(self):
         score = self.random_number()
-        prompt = PromptStub().generate()
-        return {"score": score, "prompt": prompt}
+        prompt = PromptStub().generate_object()
+        return {"score": score, "prompt": prompt.id}
 
     def generate_existing(self):
         data = self.generate()

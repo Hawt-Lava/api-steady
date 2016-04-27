@@ -22,11 +22,13 @@ class EntriesEndpointTest(BaseTest):
     def test_entries_success(self):
         data = EntryStub().generate()
         response = self.client.post('/entries', data, format='json')
+
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['score'], data['score'])
         # Assert Prompt is built correctly
-        prompt_data = response.data['prompt']
-        self.assertEquals(prompt_data['text'], data['prompt']['text'])
+
+        prompt_id = response.data['prompt']
+        self.assertEquals(prompt_id, data['prompt'])
 
     def test_bugfix_entries_associate_only_with_first_prompt(self):
         data = EntryStub().generate()
@@ -34,16 +36,16 @@ class EntriesEndpointTest(BaseTest):
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['score'], data['score'])
         # Assert Prompt is built correctly
-        prompt_data = response.data['prompt']
-        self.assertEquals(prompt_data['text'], data['prompt']['text'])
+        prompt_id = response.data['prompt']
+        self.assertEquals(prompt_id, data['prompt'])
 
         data2 = EntryStub().generate()
         response = self.client.post('/entries', data2, format='json')
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['score'], data2['score'])
         # Assert second prompt differs from first
-        prompt_data = response.data['prompt']
-        self.assertEquals(prompt_data['text'], data2['prompt']['text'])
+        prompt_id = response.data['prompt']
+        self.assertEquals(prompt_id, data2['prompt'])
 
         response = self.client.get('/entries')
         self.assertEquals(response.data['count'], 2)
