@@ -12,7 +12,9 @@ class ScoreSheetSerializerTest(BaseTest):
 
         data_dict = ScoreSheetStub().generate()
         scoresheet_serializer = ScoreSheetSerializer(data=data_dict)
-        self.assertTrue(scoresheet_serializer.is_valid())
+        #self.assertTrue(scoresheet_serializer.is_valid())
+        scoresheet_serializer.is_valid()
+        self.assertFalse(scoresheet_serializer.errors)
     @skip
     def test_creation_serialization(self):
         data_dict = ScoreSheetStub().generate()

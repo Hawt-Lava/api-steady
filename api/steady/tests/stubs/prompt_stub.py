@@ -12,4 +12,6 @@ class PromptStub(BaseStub):
         return data
 
     def generate_object(self):
-        return Prompt(**self.generate())
+        prompt = Prompt(**self.generate())
+        prompt.save()
+        return prompt
