@@ -6,8 +6,8 @@ from api.steady.tests.stubs.entry_stub import EntryStub
 from api.steady.models.entry import Entry
 from api.steady.models.prompt import Prompt
 
-class ScoreSheetSerializerTest(BaseTest):
 
+class ScoreSheetSerializerTest(BaseTest):
     def test_serialization(self):
 
         data_dict = ScoreSheetStub().generate()

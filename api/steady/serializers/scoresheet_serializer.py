@@ -4,6 +4,7 @@ from api.steady.models.entry import Entry
 from api.steady.serializers.entry_serializer import EntrySerializer
 from api.steady.models.prompt import Prompt
 
+
 class ScoreSheetSerializer(serializers.ModelSerializer):
     entries = EntrySerializer(many=True)
 

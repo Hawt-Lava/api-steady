@@ -3,6 +3,7 @@ from api.steady.models.entry import Entry
 from api.steady.tests.stubs.entry_stub import EntryStub
 from rest_framework.test import APIClient
 
+
 class EntriesEndpointTest(BaseTest):
     def test_entries_enpoint_exists(self):
         response = self.client.get('/entries')
@@ -17,7 +18,6 @@ class EntriesEndpointTest(BaseTest):
         response = self.client.get('/entries')
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.data['count'], number_of_entries)
-
 
     def test_entries_success(self):
         data = EntryStub().generate()

@@ -2,8 +2,8 @@ from api.steady.serializers.entry_serializer import EntrySerializer
 from api.steady.tests.base_test import BaseTest
 from api.steady.models.prompt import Prompt
 
-class EntrySerializerTest(BaseTest):
 
+class EntrySerializerTest(BaseTest):
     def test_serialization(self):
         prompt = Prompt(text=self.faker.sentence)
         prompt.save()

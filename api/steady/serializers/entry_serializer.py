@@ -5,7 +5,5 @@ from api.steady.serializers.prompt_serializer import PromptSerializer
 
 
 class EntrySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Entry
-

@@ -1,5 +1,6 @@
-from api.steady.serializers.user_serializer import UserSerializer 
-from api.steady.tests.base_test import BaseTest 
+from api.steady.serializers.user_serializer import UserSerializer
+from api.steady.tests.base_test import BaseTest
+
 
 class UserSerializerTest(BaseTest):
     def test_serialization(self):
