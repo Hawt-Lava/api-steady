@@ -2,7 +2,6 @@ from api.steady.tests.base_test import BaseTest
 from api.steady.models.entry import Entry
 from api.steady.tests.stubs.entry_stub import EntryStub
 from rest_framework.test import APIClient
-from unittest import skip
 
 class EntriesEndpointTest(BaseTest):
     def test_entries_enpoint_exists(self):
