@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.conf.urls import url, include, patterns
 from rest_framework import routers
-
+from api.steady.views.user_view import UserView
 from api.steady.views.prompt_view import PromptView
 from api.steady.views.entry_view import EntryView
 from api.steady.views.scoresheet_view import ScoreSheetView
