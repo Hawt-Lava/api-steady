@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.conf.urls import url, include, patterns
 from rest_framework import routers
-
+from api.steady.views.user_view import UserView
 from api.steady.views.prompt_view import PromptView
 from api.steady.views.entry_view import EntryView
 from api.steady.views.scoresheet_view import ScoreSheetView
@@ -24,11 +24,12 @@ from api.steady.views.scoresheet_view import ScoreSheetView
 from api.steady import provided_views as views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+# router.register(r'steady_users', views.UserViewSet)
+# router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [url(r'^', include(router.urls)),
                url(r'^prompts', PromptView.as_view()),
+               url(r'^users', UserView.as_view()),
                url(r'^entries', EntryView.as_view()),
                url(r'^scoresheets', ScoreSheetView.as_view()), url(
                    r'^api-auth/',

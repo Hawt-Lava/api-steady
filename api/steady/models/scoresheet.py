@@ -1,5 +1,6 @@
 from django.db import models
 from api.steady.models import Entry
+from api.steady.models import User
 
 
 class ScoreSheet(models.Model):
