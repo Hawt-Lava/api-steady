@@ -29,6 +29,7 @@ router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [url(r'^', include(router.urls)),
                url(r'^prompts', PromptView.as_view()),
+               url(r'^users', UserView.as_view()),
                url(r'^entries', EntryView.as_view()),
                url(r'^scoresheets', ScoreSheetView.as_view()), url(
                    r'^api-auth/',
