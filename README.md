@@ -22,6 +22,6 @@ We need to handle the following cases.
 
 - [ ] `GET` given a user, return a list of prompts: `/prompts?user=<user>` 
 - [ ] `GET` given a user, return a list of entries grouped by prompt: `/entries?user=<user>` 
-- [ ] `POST` create a user based off of a device 
+- [X] `POST` create a user based off of a device 
 token `/users`
 - [X] `POST` create a grouping of entries in a scoresheet `/scoresheets`
