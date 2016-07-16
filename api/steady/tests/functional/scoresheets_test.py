@@ -22,6 +22,6 @@ class ScoreSheetEndpointTest(BaseTest):
         data = ScoreSheetStub().generate()
         response = self.client.post('/scoresheets', data, format='json')
         self.assertEquals(response.status_code, 201)
-        self.assertEquals(response.data['label'], data['label'])
+        self.assertEquals(response.data['device_id'], data['device_id'])
         self.assertEquals(response.data['entries'][0]['score'],
                           data['entries'][0]['score'])
