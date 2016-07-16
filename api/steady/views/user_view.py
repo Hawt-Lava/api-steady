@@ -1,5 +1,5 @@
 from api.steady.models.user import User
-from api.steady.serializers.prompt_serializer import PromptSerializer
+from api.steady.serializers.user_serializer import UserSerializer
 
 from rest_framework import generics
 
