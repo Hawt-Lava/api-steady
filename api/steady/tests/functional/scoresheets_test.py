@@ -18,6 +18,19 @@ class ScoreSheetEndpointTest(BaseTest):
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.data['count'], number_of_scoresheets)
 
+    def test_device_id_filter(self):
+        number_of_scoresheets = 1
+        i = 0
+        current_scoresheet = ''
+        while i < number_of_scoresheets:
+            current_scoresheet = ScoreSheetStub().generate_object()
+            current_scoresheet.save()
+            i += 1
+        response = self.client.get('/scoresheets?device_id={0}'.format(current_scoresheet.device_id))
+        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.data['count'], 1)
+        self.assertEquals(response.data['results'][0]['device_id'], current_scoresheet.device_id)
+
     def test_scoresheets_post(self):
         data = ScoreSheetStub().generate()
         response = self.client.post('/scoresheets', data, format='json')
