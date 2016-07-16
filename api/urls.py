@@ -24,7 +24,7 @@ from api.steady.views.scoresheet_view import ScoreSheetView
 from api.steady import provided_views as views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
+router.register(r'steady_users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [url(r'^', include(router.urls)),

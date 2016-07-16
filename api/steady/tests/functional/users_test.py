@@ -5,7 +5,7 @@ from api.steady.tests.stubs.user_stub import UserStub
 
 class UsersEndpointTest(BaseTest):
     def test_users_exists(self):
-        response = self.client.get('/users')
+        response = self.client.get('/steady_users')
         self.assertEquals(response.status_code, 200)
 
     def test_users_returns_list(self):
@@ -14,12 +14,12 @@ class UsersEndpointTest(BaseTest):
         while i < number_of_users:
             UserStub().generate_object().save()
             i += 1
-        response = self.client.get('/users')
+        response = self.client.get('/steady_users')
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.data['count'], number_of_users)
 
     def test_post_success(self):
         data = UserStub().generate()
-        response = self.client.post('/users', data)
+        response = self.client.post('/steady_users', data)
         self.assertEquals(response.status_code, 201)
         self.assertEquals(response.data['device_id'], data['device_id'])
