@@ -7,13 +7,9 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('steady', '0001_initial'),
-    ]
+    dependencies = [('steady', '0001_initial'), ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='scoresheet',
-            name='user',
-        ),
+        migrations.RemoveField(model_name='scoresheet',
+                               name='user', ),
     ]

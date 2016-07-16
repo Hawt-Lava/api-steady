@@ -10,48 +10,53 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
-        migrations.CreateModel(
-            name='Entry',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('score', models.IntegerField()),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Prompt',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField()),
-            ],
-        ),
+        migrations.CreateModel(name='Entry',
+                               fields=[
+                                   ('id', models.AutoField(auto_created=True,
+                                                           primary_key=True,
+                                                           serialize=False,
+                                                           verbose_name='ID')),
+                                   ('score', models.IntegerField()),
+                               ], ),
+        migrations.CreateModel(name='Prompt',
+                               fields=[
+                                   ('id', models.AutoField(auto_created=True,
+                                                           primary_key=True,
+                                                           serialize=False,
+                                                           verbose_name='ID')),
+                                   ('text', models.TextField()),
+                               ], ),
         migrations.CreateModel(
             name='ScoreSheet',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True,
+                                        serialize=False,
+                                        verbose_name='ID')),
                 ('created', models.DateTimeField(auto_now=True)),
                 ('label', models.TextField()),
                 ('entries', models.ManyToManyField(to='steady.Entry')),
-            ],
-        ),
-        migrations.CreateModel(
-            name='User',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('device_id', models.TextField()),
-            ],
-        ),
-        migrations.AddField(
-            model_name='scoresheet',
-            name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='steady.User'),
-        ),
-        migrations.AddField(
-            model_name='entry',
-            name='prompt',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='steady.Prompt'),
-        ),
+            ], ),
+        migrations.CreateModel(name='User',
+                               fields=[
+                                   ('id', models.AutoField(auto_created=True,
+                                                           primary_key=True,
+                                                           serialize=False,
+                                                           verbose_name='ID')),
+                                   ('device_id', models.TextField()),
+                               ], ),
+        migrations.AddField(model_name='scoresheet',
+                            name='user',
+                            field=models.ForeignKey(
+                                on_delete=django.db.models.deletion.CASCADE,
+                                to='steady.User'), ),
+        migrations.AddField(model_name='entry',
+                            name='prompt',
+                            field=models.ForeignKey(
+                                default=1,
+                                on_delete=django.db.models.deletion.CASCADE,
+                                to='steady.Prompt'), ),
     ]

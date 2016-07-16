@@ -25,7 +25,7 @@ class ScoreSheetSerializer(serializers.ModelSerializer):
 
         score_sheet = ScoreSheet.objects.create(**validated_data)
         entry_serializer = EntrySerializer()
-        
+
         for entry_data in entries_data:
             entry = entry_serializer.create(entry_data)
             score_sheet.entries.add(entry)
