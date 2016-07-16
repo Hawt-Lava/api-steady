@@ -8,6 +8,13 @@ class ScoreSheetView(generics.ListCreateAPIView):
     """
     ScoreSheet View for Listing and Creating
     """
-    queryset = ScoreSheet.objects.all()
     serializer_class = ScoreSheetSerializer
     filter_backends = (filters.DjangoFilterBackend, )
+
+    def get_queryset(self):
+        queryset = ScoreSheet.objects.all()
+        device_id = self.request.query_params.get('device_id', None)
+
+        if device_id is not None:
+            queryset = queryset.filter(device_id=device_id)
+        return queryset

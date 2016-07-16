@@ -6,10 +6,10 @@ from api.steady.models.entry import Entry
 
 class ScoreSheetStub(BaseStub):
     def generate(self):
-        label = self.faker.sentence()
+        device_id = self.faker.sentence()
         entry1 = EntryStub().generate()
         entry2 = EntryStub().generate()
-        return {"label": label, "entries": [entry1, entry2]}
+        return {"device_id": device_id, "entries": [entry1, entry2]}
 
     def generate_existing(self):
         data = self.generate()

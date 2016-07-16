@@ -8,8 +8,8 @@ class ScoresheetTest(BaseTest):
     def test_properties(self):
         scoresheet = ScoreSheet()
 
-        label = self.faker.sentence()
-        scoresheet.label = label
+        device_id = self.faker.sentence()
+        scoresheet.device_id = device_id
 
         scoresheet.save()
         entry1 = Entry()
@@ -23,7 +23,7 @@ class ScoresheetTest(BaseTest):
 
         scoresheet.entries.add(entry1, entry2)
 
-        self.assertEquals(scoresheet.label, label)
+        self.assertEquals(scoresheet.device_id, device_id)
         self.assertEquals(len(scoresheet.entries.all()), 2)
 
     def test_full_relationship_tree(self):
@@ -43,14 +43,14 @@ class ScoresheetTest(BaseTest):
         entry2.save()
 
         # Create ScoreSheet
-        label = self.faker.sentence()
-        scoresheet = ScoreSheet(label=label)
+        device_id = self.faker.sentence()
+        scoresheet = ScoreSheet(device_id=device_id)
 
         scoresheet.save()
         scoresheet.entries.add(entry1, entry2)
 
         # Make Assertions Throughout Relationship Tree
-        self.assertEquals(scoresheet.label, label)
+        self.assertEquals(scoresheet.device_id, device_id)
         self.assertEquals(len(scoresheet.entries.all()), 2)
 
         result_entry1 = scoresheet.entries.all()[0]  # type: Entry
