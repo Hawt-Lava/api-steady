@@ -1,5 +1,6 @@
 from api.steady.models.scoresheet import ScoreSheet
 from api.steady.serializers.scoresheet_serializer import ScoreSheetSerializer
+from api.steady.pagination.pagination import LargeResultsSetPagination
 from rest_framework import filters
 from rest_framework import generics
 
@@ -10,6 +11,7 @@ class ScoreSheetView(generics.ListCreateAPIView):
     """
     serializer_class = ScoreSheetSerializer
     filter_backends = (filters.DjangoFilterBackend, )
+    pagination_class = LargeResultsSetPagination
 
     def get_queryset(self):
         queryset = ScoreSheet.objects.all()
