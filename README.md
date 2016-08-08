@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/LavaHq/api-steady.png?label=ready&title=Ready)](https://waffle.io/LavaHq/api-steady)
 # API
 A custom API that supports https://github.com/Hawt-Lava/app-steady
 
